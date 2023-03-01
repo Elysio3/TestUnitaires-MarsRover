@@ -49,9 +49,15 @@ public class MarsRoverTest {
         // TODO Rover should change position
         marsRover.move("MMMMMMMMMM");
         assertThat(marsRover.getPosition()).isEqualTo("X : 0, Y : 10, Facing : N");
+    }
 
-        marsRover.move("M");
+    @Test
+    public void shouldMoveToOtherSide() {
+        // TODO Rover should change position
+        marsRover.move("MMMMMMMMMM");
         assertThat(marsRover.getPosition()).isEqualTo("X : 0, Y : 10, Facing : N");
 
+        marsRover.move("M");
+        assertThat(marsRover.getPosition()).isEqualTo("X : 0, Y : 1, Facing : N");
     }
 }
