@@ -76,16 +76,16 @@ public class MarsRover {
 
     private void isAtBorder() {
         if(posX == 11) {
-            posX = 10;
+            posX = 1;
         }
         if(posX == -1) {
-            posX = 0;
+            posX = 10;
         }
         if(posY == 11) {
-            posY = 10;
+            posY = 1;
         }
         if(posY == -1) {
-            posY = 0;
+            posY = 10;
         }
     }
 
