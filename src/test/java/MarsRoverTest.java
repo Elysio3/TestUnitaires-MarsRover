@@ -19,14 +19,14 @@ public class MarsRoverTest {
     @Test
     public void shouldMove() {
         // TODO Rover should change position
-        marsRover.move(1);
+        marsRover.move("M");
         assertThat(marsRover.getPosition()).isEqualTo("X : 0, Y : 1, Facing : N");
     }
 
     @Test
     public void shouldRotate() {
         // TODO Rover should change facingDirection
-        marsRover.rotate('E');
+        marsRover.move("R");
         assertThat(marsRover.getFacingDirection()).isEqualTo('E');
     }
 }
