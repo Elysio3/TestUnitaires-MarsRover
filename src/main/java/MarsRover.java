@@ -27,54 +27,49 @@ public class MarsRover {
         for (String command : listOfCommands) {
             switch (command) {
                 case "M": // move
-                    switch (facingDirection) {
-                        case 'N':
-                            posY++;
-                            break;
-                        case 'E':
-                            posX++;
-                            break;
-                        case 'S':
-                            posY--;
-                            break;
-                        case 'W':
-                            posX--;
-                            break;
-                    }
+                    moving();
                     break;
                 case "L": // rotate left (!rotate)
-                    switch (facingDirection) {
-                        case 'N':
-                            rotate('W');
-                            break;
-                        case 'E':
-                            rotate('N');
-                            break;
-                        case 'S':
-                            rotate('E');
-                            break;
-                        case 'W':
-                            rotate('S');
-                            break;
-                    }
+                    rotate('W', 'N', 'E', 'S');
                     break;
                 case "R": // rotate right (rotate)
-                    switch (facingDirection) {
-                        case 'N':
-                            rotate('E');
-                            break;
-                        case 'E':
-                            rotate('S');
-                            break;
-                        case 'S':
-                            rotate('W');
-                            break;
-                        case 'W':
-                            rotate('N');
-                            break;
-                    }
+                    rotate('E', 'S', 'W', 'N');
                     break;
             }
+        }
+    }
+
+    private void rotate(char fromNorth, char fromEast, char fromSouth, char fromWest) {
+        switch (facingDirection) {
+            case 'N':
+                rotate(fromNorth);
+                break;
+            case 'E':
+                rotate(fromEast);
+                break;
+            case 'S':
+                rotate(fromSouth);
+                break;
+            case 'W':
+                rotate(fromWest);
+                break;
+        }
+    }
+
+    private void moving() {
+        switch (facingDirection) {
+            case 'N':
+                posY++;
+                break;
+            case 'E':
+                posX++;
+                break;
+            case 'S':
+                posY--;
+                break;
+            case 'W':
+                posX--;
+                break;
         }
     }
 
