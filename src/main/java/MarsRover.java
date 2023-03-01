@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MarsRover {
 
     private int posX;
     private int posY;
     private char facingDirection;
+    private final List<Obstacle> obstacles = new ArrayList<>();
 
     public MarsRover() {
         this.posX = 0;
@@ -20,14 +24,14 @@ public class MarsRover {
                 facingDirection;
     }
 
-    public void move(String commandInput) {
+    public void command(String commandInput) {
         String[] listOfCommands = commandInput.split("");
 
         // for each command
         for (String command : listOfCommands) {
             switch (command) {
                 case "M": // move
-                    moving();
+                    move();
                     break;
                 case "L": // rotate left (!rotate)
                     rotate('W', 'N', 'E', 'S');
@@ -56,20 +60,37 @@ public class MarsRover {
         }
     }
 
-    private void moving() {
+    private void move() {
+
+        int nextX = posX;
+        int nextY = posY;
+
         switch (facingDirection) {
             case 'N':
-                posY++;
+                nextY++;
                 break;
             case 'E':
-                posX++;
+                nextX++;
                 break;
             case 'S':
-                posY--;
+                nextY--;
                 break;
             case 'W':
-                posX--;
+                nextX--;
                 break;
+        }
+
+        boolean blocked = false;
+        for(Obstacle obstacle : obstacles) {
+            if (obstacle.getPosX() == nextX && obstacle.getPosY() == nextY) {
+                blocked = true;
+                break;
+            }
+        }
+
+        if(!blocked) {
+            posX = nextX;
+            posY = nextY;
         }
         isAtBorder();
     }
@@ -99,6 +120,10 @@ public class MarsRover {
 
     public void setFacingDirection(char facingDirection) {
         this.facingDirection = facingDirection;
+    }
+
+    public void addObstacle(Obstacle obstacle) {
+        obstacles.add(obstacle);
     }
 
 
