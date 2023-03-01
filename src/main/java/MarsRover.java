@@ -71,6 +71,22 @@ public class MarsRover {
                 posX--;
                 break;
         }
+        isAtBorder();
+    }
+
+    private void isAtBorder() {
+        if(posX == 11) {
+            posX = 10;
+        }
+        if(posX == -1) {
+            posX = 0;
+        }
+        if(posY == 11) {
+            posY = 10;
+        }
+        if(posY == -1) {
+            posY = 0;
+        }
     }
 
     public void rotate(char direction) {
