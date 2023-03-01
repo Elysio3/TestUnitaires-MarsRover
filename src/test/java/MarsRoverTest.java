@@ -13,20 +13,20 @@ public class MarsRoverTest {
     @Test
     public void shouldInitRover() {
         // TODO Rover should be initialized to 0, 0, N
-        assertThat(marsRover.getPosition()).isEqualsTo("X : 0, Y : 0, Facing : N");
+        assertThat(marsRover.getPosition()).isEqualTo("X : 0, Y : 0, Facing : N");
     }
 
     @Test
     public void shouldMove() {
         // TODO Rover should change position
         marsRover.move(1);
-        assertThat(marsRover.getPosition()).isEqualsTo("X : 0, Y : 1, Facing : N");
+        assertThat(marsRover.getPosition()).isEqualTo("X : 0, Y : 1, Facing : N");
     }
 
     @Test
     public void shouldRotate() {
         // TODO Rover should change facingDirection
-        marsRover.rotate('O');
-        assertThat(marsRover.getFacingDirection()).isEqualsTo('O');
+        marsRover.rotate('E');
+        assertThat(marsRover.getFacingDirection()).isEqualTo('E');
     }
 }
